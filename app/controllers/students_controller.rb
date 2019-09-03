@@ -21,7 +21,8 @@ class StudentsController < ApplicationController
   end
 
   def index
-    @students = Student.all
+    term = params.permit[:term]
+    @students = Student.search(term)
   end
 
   def student_params
